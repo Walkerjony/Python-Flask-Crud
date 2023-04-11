@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      <title>My First Bootstrap Page</title>
+
+      <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <style>
+        body {
+            
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    </style>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Email</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Mensagem</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
+
+          </tr>
+        </thead>
+        <tbody>
+            {% for usuarios in usuarios %}
+          <tr>
+            <th scope="row">{{usuarios.id}}</th>
+            <td>{{usuarios.email}}</td>
+            <td>{{usuarios.name}}</td>
+            <td>{{usuarios.message}}</td>
+            <td> <span style="font-size: 24px;color:green;">
+              <a href="/{{usuarios.id}}/edit">Editar</a> </span>
+            </td> 
+            <td>
+            <a href="/{{usuarios.id}}/delete">Deletar</a></span>
+          </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+  </body>
+    <!-- Bootstrap Javascripts -->  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</html> 
